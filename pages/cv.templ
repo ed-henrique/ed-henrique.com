@@ -2,8 +2,8 @@ package pages
 
 import "github.com/ed-henrique/ed-henrique.com/pages/components"
 
-templ CV() {
-	@components.Base("cv") {
+templ CV(v int) {
+	@components.Base(v, "cv") {
 		<div class="flex flex-col gap-3 pt-3 w-full">
 			<section class="flex flex-col gap-3">
 				<h2 class="font-bold">About</h2>

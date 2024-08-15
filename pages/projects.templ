@@ -6,16 +6,14 @@ templ ProjectsPreviews() {
   No projects yet.
 }
 
-templ Projects() {
-  @components.Base("projects") {
+templ Projects(v int) {
+  @components.Base(v, "projects") {
     <div class="text-sm sm:text-base pt-3">No projects yet.</div>
   }
 }
 
-templ ProjectPreview() {
-  @components.Base("") {}
-}
+templ ProjectPreview() {}
 
-templ Project() {
-  @components.Base("") {}
+templ Project(v int) {
+  @components.Base(v, "") {}
 }

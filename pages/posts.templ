@@ -6,17 +6,15 @@ templ PostsPreviews() {
   No posts yet.
 }
 
-templ Posts() {
-  @components.Base("posts") {
+templ Posts(v int) {
+  @components.Base(v, "posts") {
     <div class="text-sm sm:text-base pt-3">No posts yet.</div>
   }
 }
 
-templ PostPreview() {
-  @components.Base("") {}
-}
+templ PostPreview() {}
 
-templ Post() {
-  @components.Base("") {}
+templ Post(v int) {
+  @components.Base(v, "") {}
 }
 

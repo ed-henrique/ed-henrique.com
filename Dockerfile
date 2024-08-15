@@ -18,6 +18,7 @@ WORKDIR /app
 RUN mkdir -p /app/public/images
 
 COPY --from=builder /app/bin/main               .
+COPY --from=builder /app/version                .
 COPY --from=builder /app/public/init.js         ./public/init.js
 COPY --from=builder /app/public/toggle-theme.js ./public/toggle-theme.js
 COPY --from=builder /app/public/output.css      ./public/output.css

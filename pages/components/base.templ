@@ -1,5 +1,7 @@
 package components
 
+import "github.com/ed-henrique/ed-henrique.com/pages/version"
+
 const separator = " |"
 
 templ navRoute(name, currentRoute, route string, last bool) {
@@ -13,7 +15,7 @@ templ navRoute(name, currentRoute, route string, last bool) {
 	}
 }
 
-templ Base(currentRoute string) {
+templ Base(v int, currentRoute string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -37,21 +39,21 @@ templ Base(currentRoute string) {
 						Ed's Blog: Casual Software Development Insights
 				}
 			</title>
-			<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="/public/images/favicon.ico"/>
-			<link rel="apple-touch-icon" href="/public/images/apple-touch-icon.png"/>
-			<link rel="apple-touch-icon" sizes="16x16" href="/public/images/favicon-16x16.png"/>
-			<link rel="apple-touch-icon-precomposed" sizes="16x16" href="/public/images/favicon-16x16.png"/>
-			<link rel="apple-touch-icon" sizes="32x32" href="/public/images/favicon-32x32.png"/>
+			<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href={ version.Add(v, "/public/images/favicon.ico")}/>
+			<link rel="apple-touch-icon" href={ version.Add(v, "/public/images/apple-touch-icon.png")}/>
+			<link rel="apple-touch-icon" sizes="16x16" href={ version.Add(v, "/public/images/favicon-16x16.png")}/>
+			<link rel="apple-touch-icon-precomposed" sizes="16x16" href={ version.Add(v, "/public/images/favicon-16x16.png")}/>
+			<link rel="apple-touch-icon" sizes="32x32" href={ version.Add(v, "/public/images/favicon-32x32.png")}/>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link
 				href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 				rel="stylesheet"
 			/>
-			<link rel="stylesheet" href="/public/output.css"/>
+			<link rel="stylesheet" href={ version.Add(v, "/public/output.css")}/>
 		</head>
 		<body>
-			<script src="/public/init.js"></script>
+			<script src={ version.Add(v, "/public/init.js")}></script>
 			<div
 				class="ctp-latte dark:ctp-mocha font-['Courier_Prime'] bg-ctp-base dark:bg-ctp-crust flex flex-col h-full min-h-screen py-5 px-10 sm:px-20 text-ctp-text"
 			>
@@ -93,7 +95,7 @@ templ Base(currentRoute string) {
 					</nav>
 				</footer>
 			</div>
-			<script src="/public/toggle-theme.js"></script>
+			<script src={ version.Add(v, "/public/toggle-theme.js")}></script>
 		</body>
 	</html>
 }
