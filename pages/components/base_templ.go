@@ -116,33 +116,33 @@ func Base(currentRoute string) templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\"><title>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"keywords\" content=\"Blog, Posts, Projects, Software\"><meta name=\"description\" content=\"Casual technical writing of everyday software problems\"><meta name=\"author\" content=\"Eduardo Henrique Freire Machado\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"apple-mobile-web-app-capable\" content=\"yes\"><meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\"><meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		switch currentRoute {
 		case "cv":
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog - CV")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog: Casual Software Development Insights - CV")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		case "posts":
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog - Posts")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog: Casual Software Development Insights - Posts")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		case "projects":
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog - Projects")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog: Casual Software Development Insights - Projects")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		default:
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("Ed's Blog: Casual Software Development Insights")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/public/output.css\"></head><body><script>\n\t\tlet currentTheme = localStorage.getItem(\"theme\");\n\n\t\tif (currentTheme === \"dark\") {\n\t\t\tdocument.body.classList.add(\"dark\");\n\t\t}\n\t</script><div class=\"ctp-latte dark:ctp-mocha font-[&#39;Courier_Prime&#39;] bg-ctp-crust flex flex-col h-full min-h-screen py-5 px-10 sm:px-20 text-ctp-text\"><header class=\"relative border-b border-ctp-surface2 flex flex-col gap-5 items-center justify-center p-3\"><h1 class=\"text-xl sm:text-2xl\">Hey, I'm <span class=\"text-ctp-peach\">Ed</span></h1><nav class=\"hidden sm:block\"><ul class=\"flex gap-3 text-ctp-surface2\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><link rel=\"shortcut icon\" sizes=\"16x16 24x24 32x32 48x48 64x64\" href=\"/public/images/favicon.ico\"><link rel=\"apple-touch-icon\" href=\"/public/images/apple-touch-icon.png\"><link rel=\"apple-touch-icon\" sizes=\"16x16\" href=\"/public/images/favicon-16x16.png\"><link rel=\"apple-touch-icon-precomposed\" sizes=\"16x16\" href=\"/public/images/favicon-16x16.png\"><link rel=\"apple-touch-icon\" sizes=\"32x32\" href=\"/public/images/favicon-32x32.png\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/public/output.css\"></head><body><script src=\"/public/init.js\"></script><div class=\"ctp-latte dark:ctp-mocha font-[&#39;Courier_Prime&#39;] bg-ctp-crust flex flex-col h-full min-h-screen py-5 px-10 sm:px-20 text-ctp-text\"><header class=\"relative border-b border-ctp-surface2 flex flex-col gap-5 items-center justify-center p-3\"><h1 class=\"text-xl sm:text-2xl\">Hey, I'm <span class=\"text-ctp-peach\">Ed</span></h1><nav class=\"hidden sm:block\"><ul class=\"flex gap-3 text-ctp-surface2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -162,7 +162,7 @@ func Base(currentRoute string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button id=\"toggle-theme\" class=\"text-ctp-text\">Toggle Theme</button></ul></nav></header><main class=\"flex items-stretch grow mb-[4.75rem] sm:mb-0\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<li><button id=\"toggle-theme\" class=\"text-ctp-text\">Toggle Theme</button></li></ul></nav></header><main class=\"flex items-stretch grow mb-[4.75rem] sm:mb-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -190,7 +190,7 @@ func Base(currentRoute string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</ul><button id=\"toggle-theme-mobile\" class=\"text-ctp-text\">Toggle Theme</button></nav></footer></div><script>\n\t\tdocument.getElementById(\"toggle-theme\").addEventListener(\"click\", (e) => {\n\t\t\te.preventDefault();\n\n\t\t\tlet currentTheme = localStorage.getItem(\"theme\");\n\n\t\t\tif (currentTheme === null) {\n\t\t\t\tcurrentTheme = \"dark\";\n\t\t\t\tlocalStorage.setItem(\"theme\", \"dark\");\n\t\t\t}\n\n\t\t\tif (currentTheme === \"dark\") {\n\t\t\t\tlocalStorage.setItem(\"theme\", \"light\");\n\t\t\t\tdocument.body.classList.remove(\"dark\");\n\t\t\t} else {\n\t\t\t\tlocalStorage.setItem(\"theme\", \"dark\");\n\t\t\t\tdocument.body.classList.add(\"dark\");\n\t\t\t}\n\t\t});\n\n\t\tdocument.getElementById(\"toggle-theme-mobile\").addEventListener(\"click\", (e) => {\n\t\t\te.preventDefault();\n\n\t\t\tlet currentTheme = localStorage.getItem(\"theme\");\n\n\t\t\tif (currentTheme === null) {\n\t\t\t\tcurrentTheme = \"dark\";\n\t\t\t\tlocalStorage.setItem(\"theme\", \"dark\");\n\t\t\t}\n\n\t\t\tif (currentTheme === \"dark\") {\n\t\t\t\tlocalStorage.setItem(\"theme\", \"light\");\n\t\t\t\tdocument.body.classList.remove(\"dark\");\n\t\t\t} else {\n\t\t\t\tlocalStorage.setItem(\"theme\", \"dark\");\n\t\t\t\tdocument.body.classList.add(\"dark\");\n\t\t\t}\n\t\t});\n\t</script></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</ul><button id=\"toggle-theme-mobile\" class=\"text-ctp-text\">Toggle Theme</button></nav></footer></div><script src=\"/public/toggle-theme.js\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

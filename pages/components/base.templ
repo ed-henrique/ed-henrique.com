@@ -18,20 +18,30 @@ templ Base(currentRoute string) {
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8"/>
+			<meta name="keywords" content="Blog, Posts, Projects, Software"/>
+			<meta name="description" content="Casual technical writing of everyday software problems"/>
+			<meta name="author" content="Eduardo Henrique Freire Machado"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="apple-mobile-web-app-capable" content="yes"/>
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 			<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 			<title>
 				switch currentRoute {
 					case "cv":
-						Ed's Blog - CV
+						Ed's Blog: Casual Software Development Insights - CV
 					case "posts":
-						Ed's Blog - Posts
+						Ed's Blog: Casual Software Development Insights - Posts
 					case "projects":
-						Ed's Blog - Projects
+						Ed's Blog: Casual Software Development Insights - Projects
 					default:
-						Ed's Blog
+						Ed's Blog: Casual Software Development Insights
 				}
 			</title>
+			<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="/public/images/favicon.ico"/>
+			<link rel="apple-touch-icon" href="/public/images/apple-touch-icon.png"/>
+			<link rel="apple-touch-icon" sizes="16x16" href="/public/images/favicon-16x16.png"/>
+			<link rel="apple-touch-icon-precomposed" sizes="16x16" href="/public/images/favicon-16x16.png"/>
+			<link rel="apple-touch-icon" sizes="32x32" href="/public/images/favicon-32x32.png"/>
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link
@@ -41,15 +51,7 @@ templ Base(currentRoute string) {
 			<link rel="stylesheet" href="/public/output.css"/>
 		</head>
 		<body>
-			<script>
-		let currentTheme = localStorage.getItem("theme");
-
-		if (currentTheme === "dark") {
-			document.body.classList.add("dark");
-		} else {
-			localStorage.setItem("theme", "light");
-		}
-	</script>
+			<script src="/public/init.js"></script>
 			<div
 				class="ctp-latte dark:ctp-mocha font-['Courier_Prime'] bg-ctp-crust flex flex-col h-full min-h-screen py-5 px-10 sm:px-20 text-ctp-text"
 			>
@@ -61,10 +63,12 @@ templ Base(currentRoute string) {
 							@navRoute("CV", currentRoute, "cv", false)
 							@navRoute("Posts", currentRoute, "posts", false)
 							@navRoute("Projects", currentRoute, "projects", false)
-							<button id="toggle-theme" class="text-ctp-text">
-								Toggle
-								Theme
-							</button>
+							<li>
+								<button id="toggle-theme" class="text-ctp-text">
+									Toggle
+									Theme
+								</button>
+							</li>
 						</ul>
 					</nav>
 				</header>
@@ -89,45 +93,7 @@ templ Base(currentRoute string) {
 					</nav>
 				</footer>
 			</div>
-			<script>
-		document.getElementById("toggle-theme").addEventListener("click", (e) => {
-			e.preventDefault();
-
-			let currentTheme = localStorage.getItem("theme");
-
-			if (currentTheme === null) {
-				currentTheme = "dark";
-				localStorage.setItem("theme", "dark");
-			}
-
-			if (currentTheme === "dark") {
-				localStorage.setItem("theme", "light");
-				document.body.classList.remove("dark");
-			} else {
-				localStorage.setItem("theme", "dark");
-				document.body.classList.add("dark");
-			}
-		});
-
-		document.getElementById("toggle-theme-mobile").addEventListener("click", (e) => {
-			e.preventDefault();
-
-			let currentTheme = localStorage.getItem("theme");
-
-			if (currentTheme === null) {
-				currentTheme = "dark";
-				localStorage.setItem("theme", "dark");
-			}
-
-			if (currentTheme === "dark") {
-				localStorage.setItem("theme", "light");
-				document.body.classList.remove("dark");
-			} else {
-				localStorage.setItem("theme", "dark");
-				document.body.classList.add("dark");
-			}
-		});
-	</script>
+			<script src="/public/toggle-theme.js"></script>
 		</body>
 	</html>
 }
