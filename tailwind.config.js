@@ -11,8 +11,7 @@ export default {
     "border-ctp-sapphire",
     "border-ctp-surface2",
 
-    "bg-ctp-sapphire",
-    "bg-ctp-surface2",
+    "bg-ctp-mantle",
     "bg-ctp-crust",
     
     "text-ctp-sapphire",
