@@ -2,10 +2,21 @@ package pages
 
 import "github.com/ed-henrique/ed-henrique.com/pages/components"
 
-templ Post() {
-  @components.Base("", "Ed's site") {}
+templ PostsPreviews() {
+  No posts yet.
 }
 
 templ Posts() {
-  @components.Base("posts", "Ed's site") {}
+  @components.Base("posts") {
+    <div class="text-sm sm:text-base pt-3">No posts yet.</div>
+  }
 }
+
+templ PostPreview() {
+  @components.Base("") {}
+}
+
+templ Post() {
+  @components.Base("") {}
+}
+

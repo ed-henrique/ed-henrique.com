@@ -2,10 +2,20 @@ package pages
 
 import "github.com/ed-henrique/ed-henrique.com/pages/components"
 
-templ Project() {
-  @components.Base("", "Ed's site") {}
+templ ProjectsPreviews() {
+  No projects yet.
 }
 
 templ Projects() {
-  @components.Base("projects", "Ed's site") {}
+  @components.Base("projects") {
+    <div class="text-sm sm:text-base pt-3">No projects yet.</div>
+  }
+}
+
+templ ProjectPreview() {
+  @components.Base("") {}
+}
+
+templ Project() {
+  @components.Base("") {}
 }
