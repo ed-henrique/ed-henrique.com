@@ -1,0 +1,30 @@
+services:
+  blog:
+    build:
+      context: .
+      tags:
+        - "registry.ed-henrique.com/blog:latest"
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - db_data:/app/db/
+    environment:
+      STATIC_FILES_VERSION_FILE: "/run/secrets/static_files_version"
+      ADMIN_USERNAME_FILE: "/run/secrets/admin_username"
+      ADMIN_PASSWORD_FILE: "/run/secrets/admin_password"
+    secrets:
+      - static_files_version
+      - admin_username
+      - admin_password
+
+secrets:
+  static_files_version:
+    file: ./static_files_version.txt
+  admin_username:
+    file: ./admin_username.txt
+  admin_password:
+    file: ./admin_password.txt
+
+volumes:
+  db_data:

@@ -3,7 +3,7 @@ import catppuccin from "@catppuccin/tailwindcss";
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "selector",
-  content: ["./pages/**/*.templ"],
+  content: ["./pages/**/*.templ", "./admin/**/*.templ"],
   theme: {
     extend: {}
   },
@@ -11,9 +11,13 @@ export default {
     "border-ctp-sapphire",
     "border-ctp-surface2",
 
-    "bg-ctp-mantle",
+    "bg-ctp-base",
+    "bg-ctp-text",
     "bg-ctp-crust",
-    
+    "bg-ctp-surface2",
+
+    "text-ctp-base",
+    "text-ctp-crust",
     "text-ctp-sapphire",
     "text-ctp-surface2",
     "text-ctp-peach",

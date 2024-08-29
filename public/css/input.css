@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  header * {
+    display: none;
+  }
+
+  footer * {
+    display: none;
+  }
+}
+
+.hljs-copy {
+   float: right;
+   cursor: pointer;
+}

@@ -1,0 +1,67 @@
+package admin
+
+import (
+	"fmt"
+	"github.com/ed-henrique/ed-henrique.com/pages/version"
+	"github.com/ed-henrique/ed-henrique.com/admin/components"
+	"github.com/ed-henrique/ed-henrique.com/internal/database"
+)
+
+templ Post(p database.Post) {
+	<section class="border border-ctp-surface2 p-3 break-words">
+		<h2 class="font-bold mb-3">
+			{ p.Title }
+		</h2>
+		<h3 class="text-xs sm:text-sm">Created at: { p.CreatedAt }</h3>
+		<h3 class="text-xs sm:text-sm">
+			if p.UpdatedAt.Valid {
+				Updated at: { p.UpdatedAt.String }
+			} else {
+				Updated at: -
+			}
+		</h3>
+		<div class="flex mt-3 gap-3 justify-end w-full">
+			<a
+				class="border-b border-ctp-sapphire text-ctp-sapphire"
+				href={ templ.URL(fmt.Sprintf("/admin/posts/%d", p.ID)) }
+			>Edit</a>
+			<button class="delete-buttons border-b border-ctp-red text-ctp-red" id={ fmt.Sprintf("%d-delete", p.ID) }>Delete</button>
+		</div>
+	</section>
+}
+
+templ Posts(ps []database.Post) {
+	<article class="flex flex-col gap-3">
+		for _, p := range ps {
+			@Post(p)
+		}
+	</article>
+}
+
+templ CreatePost(v int) {
+	@components.Base(v, "create_post") {
+		<div class="pt-3 text-sm sm:text-base w-full">
+			<form class="flex flex-col h-full gap-3">
+				<input class="border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust" id="title" name="title" autofocus autocapitalize="words" type="text" placeholder="Title"/>
+				<textarea class="h-1/3 border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust resize-none" id="description" name="description" placeholder="Description"></textarea>
+				<textarea class="grow border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust resize-none" id="content" name="content" placeholder="Content"></textarea>
+				<button class="bg-ctp-surface2 text-ctp-base dark:text-ctp-crust px-2 py-1" type="submit">Create</button>
+			</form>
+			<script src={ version.Add(v, "/public/js/create-post.js") }></script>
+		</div>
+	}
+}
+
+templ EditPost(v int, p database.Post) {
+	@components.Base(v, "edit_post") {
+		<div class="pt-3 text-sm sm:text-base w-full">
+			<form class="flex flex-col h-full gap-3">
+				<input class="border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust" id="title" name="title" autofocus autocapitalize="words" type="text" placeholder="Title" value={p.Title}/>
+				<textarea class="h-1/3 border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust resize-none" id="description" name="description" placeholder="Description">{p.Description}</textarea>
+				<textarea class="grow border border-ctp-surface2 px-2 py-1 bg-ctp-base dark:bg-ctp-crust resize-none" id="content" name="content" placeholder="Content">{p.Content}</textarea>
+				<button class="bg-ctp-surface2 text-ctp-base dark:text-ctp-crust py-1" type="submit">Save</button>
+			</form>
+			<script src={ version.Add(v, "/public/js/update-post.js") }></script>
+		</div>
+	}
+}

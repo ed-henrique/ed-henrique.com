@@ -1,20 +1,52 @@
 package pages
 
-import "github.com/ed-henrique/ed-henrique.com/pages/components"
+import (
+	"fmt"
+	"github.com/ed-henrique/ed-henrique.com/internal/database"
+	"github.com/ed-henrique/ed-henrique.com/pages/components"
+	"html/template"
+	"strings"
+)
 
-templ PostsPreviews() {
-  No posts yet.
+templ Posts(v int, ps []database.Post) {
+	@components.Base(v, "posts", false) {
+		@PostsPreview(v, ps, false)
+	}
 }
 
-templ Posts(v int) {
-  @components.Base(v, "posts") {
-    <div class="text-sm sm:text-base pt-3">No posts yet.</div>
-  }
+templ PostsPreview(v int, ps []database.Post, isIndex bool) {
+	<div class="flex flex-col w-full">
+		for _, p := range ps {
+			@PostPreview(p, isIndex)
+		}
+	</div>
 }
 
-templ PostPreview() {}
-
-templ Post(v int) {
-  @components.Base(v, "") {}
+templ Post(v int, p database.Post) {
+	@components.Base(v, "", strings.Contains(p.Content, "</code>")) {
+		<div
+			class="flex flex-col gap-5 text-base sm:text-sm text-justify hyphens-auto w-full before:[&_li]:content-['-_'] [&_h1]:my-3 [&_h2]:my-3 [&_h3]:my-3 [&_h1]:font-bold [&_h2]:font-bold [&_h3]:font-bold [&_h1]:text-4xl [&_h2]:text-2xl [&_h3]:text-xl [&_pre]:rounded-md [&_pre]:overflow-hidden [&_hr]:border-ctp-surface2"
+		>
+			@templ.FromGoHTML(template.Must(template.New("").Parse(p.Content)), nil)
+		</div>
+	}
 }
 
+templ PostPreview(p database.Post, isIndex bool) {
+	<div>
+		<div class={"flex flex-col pt-3 pb-3 gap-3 w-full", templ.KV("sm:pr-3", isIndex)}>
+			<div class="flex items-center justify-between w-full">
+				<h1 class="font-bold text-2xl sm:text-xl">{ p.Title }</h1>
+				<a
+					class="text-right border-b border-ctp-sapphire text-ctp-sapphire w-fit"
+					href={ templ.URL(fmt.Sprintf("/posts/%d", p.ID)) }
+				>
+					Read
+					More
+				</a>
+			</div>
+			<p class="text-justify hyphens-auto text-sm">{ p.Description }</p>
+		</div>
+		<div class="border-b border-ctp-surface2"></div>
+	</div>
+}

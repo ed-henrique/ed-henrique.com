@@ -7,7 +7,7 @@ templ ProjectsPreviews() {
 }
 
 templ Projects(v int) {
-  @components.Base(v, "projects") {
+  @components.Base(v, "projects", false) {
     <div class="text-sm sm:text-base pt-3">No projects yet.</div>
   }
 }
@@ -15,5 +15,5 @@ templ Projects(v int) {
 templ ProjectPreview() {}
 
 templ Project(v int) {
-  @components.Base(v, "") {}
+  @components.Base(v, "", false) {}
 }

@@ -1,0 +1,16 @@
+package admin
+
+import (
+	"github.com/ed-henrique/ed-henrique.com/admin/components"
+	"github.com/ed-henrique/ed-henrique.com/internal/database"
+	"github.com/ed-henrique/ed-henrique.com/pages/version"
+)
+
+templ Index(v int, posts []database.Post) {
+	@components.Base(v, "admin") {
+		<div class="pt-3 text-sm sm:text-base w-full">
+			@Posts(posts)
+		</div>
+		<script src={ version.Add(v, "/public/js/delete-post.js") }></script>
+	}
+}

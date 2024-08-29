@@ -1,0 +1,10 @@
+<div class=\"flex flex-col w-full\">
+</div>
+<div class=\"flex flex-col gap-5 text-base sm:text-sm text-justify hyphens-auto w-full before:[&amp;_li]:content-[&#39;-_&#39;] [&amp;_h1]:my-3 [&amp;_h2]:my-3 [&amp;_h3]:my-3 [&amp;_h1]:font-bold [&amp;_h2]:font-bold [&amp;_h3]:font-bold [&amp;_h1]:text-4xl [&amp;_h2]:text-2xl [&amp;_h3]:text-xl [&amp;_pre]:rounded-md [&amp;_pre]:overflow-hidden [&amp;_hr]:border-ctp-surface2\">
+</div>
+<div>
+<div class=\"
+\"><div class=\"flex items-center justify-between w-full\"><h1 class=\"font-bold text-2xl sm:text-xl\">
+</h1><a class=\"text-right border-b border-ctp-sapphire text-ctp-sapphire w-fit\" href=\"
+\">Read More</a></div><p class=\"text-justify hyphens-auto text-sm\">
+</p></div><div class=\"border-b border-ctp-surface2\"></div></div>

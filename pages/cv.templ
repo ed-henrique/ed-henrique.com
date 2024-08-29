@@ -3,24 +3,17 @@ package pages
 import "github.com/ed-henrique/ed-henrique.com/pages/components"
 
 templ CV(v int) {
-	@components.Base(v, "cv") {
+	@components.Base(v, "cv", false) {
 		<div class="flex flex-col gap-3 pt-3 w-full">
 			<section class="flex flex-col gap-3">
 				<h2 class="font-bold">About</h2>
 				<div class="text-sm sm:text-base">
 					<p>Eduardo Henrique Freire Machado</p>
-					<p>Boa Vista, Roraima</p>
+					<p class="text-ctp-overlay0">Roraima, Brazil</p>
+				</div>
+				<div class="text-sm sm:text-base">
 					<p>
-						<a
-							class="border-b border-ctp-sapphire text-ctp-sapphire"
-							href="mailto:edu.hen.fm@gmail.com"
-							referrerpolicy="no-referrer"
-							rel="noreferrer"
-							target="_blank"
-						>edu.hen.fm@gmail.com</a>
-					</p>
-					<p>
-						<a
+						- <a
 							class="border-b border-ctp-sapphire text-ctp-sapphire"
 							href="https://linkedin.com/in/ed-hfm"
 							referrerpolicy="no-referrer"
@@ -29,7 +22,16 @@ templ CV(v int) {
 						>in/ed-hfm</a>
 					</p>
 					<p>
-						<a
+						- <a
+							class="border-b border-ctp-sapphire text-ctp-sapphire"
+							href="mailto:edu.hen.fm@gmail.com"
+							referrerpolicy="no-referrer"
+							rel="noreferrer"
+							target="_blank"
+						>edu.hen.fm@gmail.com</a>
+					</p>
+					<p>
+						- <a
 							class="border-b border-ctp-sapphire text-ctp-sapphire"
 							href="https://orcid.org/0009-0008-7340-976X"
 							referrerpolicy="no-referrer"

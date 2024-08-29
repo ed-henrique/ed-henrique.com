@@ -2,14 +2,18 @@ FROM golang:1.22.5-alpine3.20 AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY package.json .
+COPY package-lock.json .
 
 RUN apk update && \
-    apk add --no-cache make npm && \
+    apk add --no-cache make npm sqlite && \
     npm i && \
-    go install github.com/a-h/templ/cmd/templ@latest
+    go install github.com/a-h/templ/cmd/templ@latest && \
+    go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
-RUN make prod
+COPY . .
+
+RUN go generate ./... && make prod
 
 FROM alpine:3.20 AS exec
 
@@ -17,12 +21,9 @@ WORKDIR /app
 
 RUN mkdir -p /app/public/images
 
-COPY --from=builder /app/bin/main               .
-COPY --from=builder /app/version                .
-COPY --from=builder /app/public/init.js         ./public/init.js
-COPY --from=builder /app/public/toggle-theme.js ./public/toggle-theme.js
-COPY --from=builder /app/public/output.css      ./public/output.css
-COPY --from=builder /app/public/images/         ./public/images/
+COPY --from=builder /app/bin/main .
+COPY --from=builder /app/db       ./db
+COPY --from=builder /app/public   ./public
 
 EXPOSE 8080
 
